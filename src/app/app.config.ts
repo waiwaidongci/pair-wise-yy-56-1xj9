@@ -23,9 +23,19 @@ const mockData = {
     { id:'W-109', drawing:'SG-12-平台梁', component:'PL-08 / 节点板', joint:'角焊缝', method:'SMAW', welder:'孙鹏', qualification:'GB/T 9448 · 2026-10-01', qualificationValid:false, inspectionRatio:10, requiredRatio:20, status:'待检测', x:78, y:60, repairs:0, defects:[] },
     { id:'W-112', drawing:'SG-12-平台梁', component:'PL-08 / 腹板', joint:'组合焊缝', method:'GMAW', welder:'王凯', qualification:'GB/T 9448 · 2027-06', qualificationValid:true, inspectionRatio:50, requiredRatio:50, status:'已关闭', x:36, y:68, repairs:0, defects:[] },
   ],
+  // 焊工资质版本：台账焊缝只留姓名，资格按作业日（计划日期）匹配版本
+  qualifications: [
+    { id:'Q-1', welder:'王凯', certNo:'GB/T 9448', method:'GMAW', grade:'板对接 · 平焊', validFrom:'2026-06-01', validTo:'2027-06-30', version:1, status:'现行' },
+    { id:'Q-2', welder:'刘强', certNo:'GB/T 9448', method:'SAW', grade:'板对接 · 平焊', validFrom:'2026-03-01', validTo:'2028-03-31', version:1, status:'现行' },
+    { id:'Q-3', welder:'赵明', certNo:'GB/T 9448', method:'FCAW', grade:'角焊缝 · 全位置', validFrom:'2026-01-01', validTo:'2027-01-31', version:1, status:'现行' },
+    { id:'Q-4', welder:'孙鹏', certNo:'GB/T 9448', method:'SMAW', grade:'角焊缝 · 平焊', validFrom:'2025-10-01', validTo:'2026-10-01', version:1, status:'现行' },
+  ],
   plans: [
-    { id:'IP-2026-0930-A', date:'2026-09-30', method:'UT + MT', weldIds:['W-105','W-106','W-108'], inspector:'陈锋', state:'待执行' },
+    { id:'IP-2026-0930-A', date:'2026-09-30', method:'UT + MT', weldIds:['W-109','W-101'], inspector:'陈锋', state:'待执行' },
     { id:'IP-2026-0929-B', date:'2026-09-29', method:'UT', weldIds:['W-104'], inspector:'赵岚', state:'执行中' },
+    { id:'IP-2026-1005-D', date:'2026-10-05', method:'UT', weldIds:['W-109','W-104'], inspector:'陈锋', state:'待执行' },
+    { id:'IP-2026-0925-C', date:'2026-09-25', method:'MT', weldIds:['W-112'], inspector:'赵岚', state:'已完成', completedAt:'2026-09-25 17:20',
+      basis:[{ weldId:'W-112', welder:'王凯', certId:'Q-1', certNo:'GB/T 9448', validFrom:'2026-06-01', validTo:'2027-06-30' }] },
   ],
 }
 
