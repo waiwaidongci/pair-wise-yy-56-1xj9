@@ -5,7 +5,8 @@
   "scripts": {
     "start": "ng serve --host 0.0.0.0 --port 62056",
     "dev": "ng serve --host 0.0.0.0 --port 62056",
-    "build": "ng build"
+    "build": "ng build",
+    "selftest": "tsc tools/selftest.ts --outDir out-test --module commonjs --target ES2022 --moduleResolution node --strict --skipLibCheck && node out-test/tools/selftest.js"
   },
   "dependencies": {
     "@angular/animations": "20.2.4",
@@ -30,6 +31,7 @@
     "@angular/build": "20.2.2",
     "@angular/cli": "20.2.2",
     "@angular/compiler-cli": "20.2.4",
+    "@types/node": "^26.6.4",
     "typescript": "~5.8.3"
   }
 }
